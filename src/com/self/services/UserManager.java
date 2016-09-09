@@ -1,6 +1,6 @@
 package com.self.services;
 
-import com.self.beans.UserForm;
+import com.self.forms.UserForm;
 
 public interface UserManager {
 

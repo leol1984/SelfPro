@@ -2,7 +2,7 @@
 package com.self.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.self.beans.UserForm;
+import com.self.forms.UserForm;
 import com.self.services.UserManager;
 import com.self.services.impl.UserManagerImpl;
 
