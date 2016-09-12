@@ -4,6 +4,6 @@ import com.self.forms.UserForm;
 
 public interface UserManager {
 
-	public void regUser(UserForm user);
+	public void regUser(UserForm user) throws Exception;
 
 }

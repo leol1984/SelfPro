@@ -4,9 +4,8 @@ package com.self.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.self.forms.UserForm;
 import com.self.services.UserManager;
-import com.self.services.impl.UserManagerImpl;
 
-public  class RegisterAction extends ActionSupport {
+public class RegisterAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,17 +21,12 @@ public  class RegisterAction extends ActionSupport {
 		this.user = user;
 	}
 
-	public UserManager getUserManager() {
-		return userManager;
-	}
-
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
 
 	public String execute() {
 		try {
-			this.setUserManager(new UserManagerImpl());
 			userManager.regUser(user);
 			return SUCCESS;
 

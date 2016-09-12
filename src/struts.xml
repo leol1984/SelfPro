@@ -4,7 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<include file="struts-default.xml" />
+	<constant name="struts.objectFactory" value="spring" />
+
 	<package name="selfpro" namespace="/" extends="struts-default">
 		<default-action-ref name="index" />
 
@@ -17,7 +18,7 @@
 				result="error" />
 		</global-exception-mappings>
 
-		<action name="register" class="com.self.action.RegisterAction">
+		<action name="register" class="regAction">
 			<result name="input">/Register.jsp</result>
 			<result name="success">/Success.jsp</result>
 			<result name="error">/Fail.jsp</result>

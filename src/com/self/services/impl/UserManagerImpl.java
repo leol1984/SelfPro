@@ -1,12 +1,10 @@
 package com.self.services.impl;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.HibernateException;
+import org.springframework.beans.BeanUtils;
 
 import com.self.beans.User;
 import com.self.dao.BaseDao;
-import com.self.dao.impl.HibernateSessionFactory;
-import com.self.dao.impl.UserDao;
 import com.self.forms.UserForm;
 import com.self.services.UserManager;
 
@@ -14,30 +12,16 @@ public class UserManagerImpl implements UserManager {
 
 	private BaseDao dao;
 
-	private Session session;
-
-	public UserManagerImpl() {
-		dao = new UserDao();
+	public void setDao(BaseDao dao) {
+		this.dao = dao;
 	}
 
 	@Override
-	public void regUser(UserForm userForm) {
-
-		session = HibernateSessionFactory.currentSession();
-		dao.setSession(session);
-		// 获取事务
-		Transaction ts = session.beginTransaction();
-		// 构造User对象
+	public void regUser(UserForm userForm) throws Exception {
 		User user = new User();
-		user.setUsername(userForm.getUsername());
-		user.setPassword(userForm.getPassword());
-		user.setGender(userForm.getGender());
-		// 保存User对象
+		BeanUtils.copyProperties(userForm, user);
 		dao.saveObject(user);
-		// 提交事务
-		ts.commit();
-		// 关闭Session
-		HibernateSessionFactory.closeSession();
 	}
 
 }
+

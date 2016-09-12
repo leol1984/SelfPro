@@ -10,6 +10,21 @@
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 	</filter>
 
+
+	<init-param>
+		<param-name>config</param-name>
+		<param-value>struts-default.xml,struts-plugin.xml,struts.xml</param-value>
+	</init-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
 	<filter-mapping>
 		<filter-name>Self</filter-name>
 		<url-pattern>/*</url-pattern>

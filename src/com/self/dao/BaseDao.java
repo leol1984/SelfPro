@@ -1,15 +1,7 @@
-
 package com.self.dao;
-
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 
 public interface BaseDao {
 
-	public void saveObject(Object obj) throws HibernateException;
+	public void saveObject(Object obj) throws Exception;
 
-	public Session getSession();
-
-	public void setSession(Session session);
 }
-
